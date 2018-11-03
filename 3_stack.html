@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03 Stack Assignment</title>
+    <script>
+
+        // var stack = [];
+        // stack.push(2);       // stack is now [2]
+        // stack.push(5);       // stack is now [2, 5]
+        // var i = stack.pop(); // stack is now [2]
+        // alert(i);            // displays 5
+
+        // var queue = [];
+        // queue.push(2);         // queue is now [2]
+        // queue.push(5);         // queue is now [2, 5]
+        // var i = queue.shift(); // queue is now [5]
+        // alert(i);              // displays 2
+
+        var stack = [];
+        var i;
+        stack.push("Book 1");       
+        stack.push("Book 2");
+        stack.push("Book 3");   
+        stack.push("Book 4");   
+        stack.push("Book 5");          
+        console.log("Stack of Books");
+        console.log(stack);
+
+        i = stack.pop();   //stack hve only book 1, book 2, book 3, book4
+        console.log("Book remove from stack: " + i);
+
+        i = stack.pop();   //stack hve only book 1, book 2, book 3
+        console.log("Book remove from stack: " + i);
+
+        console.log(stack);
+
+        ///////////////////////////////////////////////////////////////////////
+
+
+        var queue = [];
+        var j;
+        queue.push("Cust A");         
+        queue.push("Cust B");         
+        queue.push("Cust C");
+        queue.push("Cust D");
+        queue.push("Cust E");
+        console.log("Que in Super Market");
+        console.log(queue);
+
+        j = queue.shift(); // queue is now [Cust B, C, D, E]
+        console.log("Customer remove from queue: " + j);     
+
+        console.log(queue);
+
+
+    </script>
+</head>
+<body>
+    test
+ </body>
+</html>

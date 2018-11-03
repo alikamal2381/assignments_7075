@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02 Protype Assignment</title>
+    <script>
+
+
+        var Employee = function(name, salary){
+            this.name = name;
+            this.salary = salary;
+        }
+        
+        Employee.prototype.greeting = function() {
+            console.log("Hello, my name is " + this.name());
+        };
+
+        Employee.prototype.incomeTax = function(x){
+            console.log("calculate incomeTax");
+            var result = 0;
+
+            if(x >= 0 || x <= 10000){   //Parcent 5%
+                 result = x * 5 / 100;
+            }
+            else if(x >= 10001 || x <= 15000){ //Parcent 10%
+                result = x * 10 / 100;
+            }
+            else { //Parcent 15%
+                result = x * 15 / 100;
+            }
+
+            return result;    
+
+        }
+
+        console.log("Tax Slab \n"+" Range: 0 to 10000 --> 5% \n"+"  Range: 10001 to 15000 --> 10% \n"+" Range: > 15000 --> 15%");
+
+        var emp1 = new Employee('Ali Kamal', 10000);
+        console.log(emp1.name + " " + emp1.salary + " " + " incomeTax --> " + Employee.prototype.incomeTax(emp1.salary));
+
+        var emp2 = new Employee('Ayaz Rizvi', 15000);
+        console.log(emp2.name + " " + emp2.salary + " " + " incomeTax --> " + Employee.prototype.incomeTax(emp2.salary));
+
+        var emp3 = new Employee('Yasir Kamal', 20000);
+        console.log(emp3.name + " " + emp3.salary + " " + " incomeTax --> " + Employee.prototype.incomeTax(emp3.salary));
+
+    </script>
+</head>
+<body>
+    test
+ </body>
+</html>

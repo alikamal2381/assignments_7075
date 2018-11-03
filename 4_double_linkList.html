@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04 Double Link List Assignment</title>
+    <script>
+
+// npm install dbly-linked-list --save
+
+// var LinkedList = require('dbly-linked-list');
+// var list = new LinkedList();
+
+// list.isEmpty();
+// // --> true
+
+// list.insert('data item 1');
+// list.insert('data item 2');
+// list.insert('data item 3');
+// list.insert('data item 4');
+// // list contains:
+// // 'data item 1', ... ,'data item 4'
+
+// list.isEmpty();
+// // --> false
+
+// list.getSize();
+// // --> 4
+
+// list.insertFirst('data item 0');
+// // list contains:
+// // 'data item 0', ... ,'data item 4'
+
+// list.getHeadNode().getData();
+// // --> 'data item 0'
+
+// list.remove();
+// // --> removes 'data item 4'
+
+// list.removeFirst();
+// // --> removes 'data item 0'
+
+// list.getHeadNode().getData();
+// // --> 'data item 1'
+
+// list.clear();
+// list.isEmpty();
+// // --> true
+
+
+function Node(element) {
+    this.element = element;
+    this.next = null;
+    this.previous = null;
+}
+
+function LList() {
+    this.head = new Node("head");
+    
+    this.find = find;
+    this.findLast = findLast;
+
+    this.remove = remove;
+    this.insert = insert;
+    this.display = display;
+    this.dispReverse = dispReverse;
+        
+}
+
+function find(item) {
+    var currNode = this.head;
+    while(currNode.element != item) {
+        currNode = currNode.next;
+    }
+
+    return currNode;
+}
+
+
+function display(list) {
+    var currNode = this.head.next;
+    while (currNode != null) {
+        console.log(currNode.element);
+        currNode = currNode.next;
+    }
+}
+
+
+function insert(newElement, item) {
+    var newNode = new Node(newElement);
+    var current = this.find(item);
+    newNode.next = current.next;
+    newNode.previous = current;
+    current.next = newNode;
+
+
+    // Why I dont need this part?
+    // Since new node got inserted, on my thoughts,
+    // the next node of the current node should point the new node as a previous one
+    // current.next.previous = newNode;
+    
+}
+
+function remove(item) {
+    var currNode = this.find(item);
+    if (currNode.next != null) {
+        currNode.previous.next = currNode.next;
+        currNode.next.previous = currNode.previous;
+        currNode.next = null;
+        currNode.previous = null;
+    }
+}
+
+function findLast() {
+    var currNode = this.head;
+    while (currNode.next != null) {
+        currNode = currNode.next;
+    }
+
+    return currNode;
+}
+
+function dispReverse() {
+
+    var currNode = this.head;
+    currNode = this.findLast();
+
+    while(currNode.previous != null) {
+        console.log(currNode.element);
+        currNode = currNode.previous;
+    }
+}
+
+var cities = new LList(); 
+cities.insert("Conway", "head"); 
+cities.insert("Russellville", "Conway"); 
+cities.insert("Carlisle", "Russellville"); 
+cities.insert("Alma", "Carlisle"); 
+//cities.display();
+
+cities.remove("Carlisle");
+//cities.display();
+cities.dispReverse();
+
+
+    </script>
+</head>
+<body>
+    test
+ </body>
+</html>
